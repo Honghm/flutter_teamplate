@@ -1,12 +1,13 @@
 
 part of flutter_template;
 
-class StateButton {
+
+class ButtonWithIcon {
   final String? text;
-  final Icon? icon;
+  final Widget? icon;
   final Color color;
 
-  const StateButton({
+  const ButtonWithIcon({
     this.text,
     this.icon,
     required this.color,
@@ -14,13 +15,13 @@ class StateButton {
 }
 
 Widget buildChildWithIcon(
-    StateButton stateButton, double iconPadding, TextStyle textStyle) {
+    ButtonWithIcon stateButton, double iconPadding, TextStyle textStyle) {
   return buildChildWithIC(
       stateButton.text, stateButton.icon, iconPadding, textStyle);
 }
 
 Widget buildChildWithIC(
-    String? text, Icon? icon, double gap, TextStyle textStyle) {
+    String? text, Widget? icon, double gap, TextStyle textStyle) {
   var children = <Widget>[];
   children.add(icon ?? Container());
   if (text != null) {
