@@ -16,3 +16,4 @@ part 'pin_code/models/animation_type.dart';
 part 'pin_code/models/dialog_config.dart';
 part 'pin_code/models/pin_theme.dart';
 part 'pin_code/pin_code_fields.dart';
+part 'slide/range_slider.dart';

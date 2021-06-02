@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'dart:math';
+part of flutter_template;
 
 class FlutterSlider extends StatefulWidget {
   final Key? key;
