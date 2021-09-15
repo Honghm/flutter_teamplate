@@ -76,5 +76,6 @@ part 'persistent-tab-view/nav-bar-styles/style-15-bottom-nav-bar.widget.dart';
 part 'persistent-tab-view/nav-bar-styles/style-16-bottom-nav-bar.widget.dart';
 part 'persistent-tab-view/nav-bar-styles/style-17-bottom-nav-bar.widget.dart';
 part 'persistent-tab-view/nav-bar-styles/style-18-bottom-nav-bar.widget.dart';
+part 'persistent-tab-view/nav-bar-styles/style-19-bottom-nav-bar.widget.dart';
 part 'persistent-tab-view/nav-bar-styles/simple-bottom-nav-bar.widget.dart';
 part 'persistent-tab-view/nav-bar-styles/neumorphic-bottom-nav-bar.widget.dart';
