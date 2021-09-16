@@ -37,8 +37,8 @@ class BottomNavStyle19 extends StatelessWidget {
               children: <Widget>[
                 Expanded(
                   child: Container(
-                    height: 46,
-                    width: 46,
+                    height: height!*0.47,
+                    width: height*0.47,
                     decoration: BoxDecoration(
                       color: isSelected?Color(0xFFA6C2E4).withOpacity(0.2):Colors.transparent,
                       borderRadius: BorderRadius.circular(10.0)
@@ -257,7 +257,7 @@ class BottomNavStyle19 extends StatelessWidget {
                 child: _buildMiddleItem(
                     this.navBarEssentials!.items![midIndex],
                     this.navBarEssentials!.selectedIndex == midIndex,
-                    this.navBarEssentials!.navBarHeight! - 40.0)),
+                    this.navBarEssentials!.navBarHeight!*0.58)),
           )
         ],
       ),
