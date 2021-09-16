@@ -36,19 +36,27 @@ class BottomNavStyle19 extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Expanded(
-                  child: IconTheme(
-                    data: IconThemeData(
-                        size: item.iconSize,
-                        color: isSelected
-                            ? (item.activeColorSecondary == null
-                            ? item.activeColorPrimary
-                            : item.activeColorSecondary)
-                            : item.inactiveColorPrimary == null
-                            ? item.activeColorPrimary
-                            : item.inactiveColorPrimary),
-                    child: isSelected
-                        ? item.icon
-                        : item.inactiveIcon ?? item.icon,
+                  child: Container(
+                    height: 46,
+                    width: 46,
+                    decoration: BoxDecoration(
+                      color: isSelected?Color(0xFFA6C2E4).withOpacity(0.2):Colors.transparent,
+                      borderRadius: BorderRadius.circular(10.0)
+                    ),
+                    child: IconTheme(
+                      data: IconThemeData(
+                          size: item.iconSize,
+                          color: isSelected
+                              ? (item.activeColorSecondary == null
+                              ? item.activeColorPrimary
+                              : item.activeColorSecondary)
+                              : item.inactiveColorPrimary == null
+                              ? item.activeColorPrimary
+                              : item.inactiveColorPrimary),
+                      child: isSelected
+                          ? item.icon
+                          : item.inactiveIcon ?? item.icon,
+                    ),
                   ),
                 ),
                 item.title == null
@@ -99,21 +107,29 @@ class BottomNavStyle19 extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           Transform.translate(
-            offset: Offset(0, -1),
+            offset: Offset(0, -15),
             child: Center(
               child: Container(
-                width: 150.0,
-                height: height,
+                width:height??55.0,
+                height: height?? 55.0,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: item.activeColorPrimary,
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: <Color>[
+                      Color(0xFF26CBFF), // yellow sun
+                      Color(0xFF6980FD), // blue sky
+                    ],
+                  ),
                   border:
                   Border.all(color: Colors.transparent, width: 5.0),
                   boxShadow: this.navBarDecoration!.boxShadow,
                 ),
                 child: Container(
                   alignment: Alignment.center,
-                  height: height,
+                  height: height??55.0,
                   child: ListView(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
@@ -146,7 +162,7 @@ class BottomNavStyle19 extends StatelessWidget {
           item.title == null
               ? SizedBox.shrink()
               : Padding(
-            padding: EdgeInsets.zero,
+            padding: const EdgeInsets.only(bottom: 10.0),
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Material(
@@ -241,7 +257,7 @@ class BottomNavStyle19 extends StatelessWidget {
                 child: _buildMiddleItem(
                     this.navBarEssentials!.items![midIndex],
                     this.navBarEssentials!.selectedIndex == midIndex,
-                    this.navBarEssentials!.navBarHeight)),
+                    this.navBarEssentials!.navBarHeight! - 40.0)),
           )
         ],
       ),
