@@ -89,7 +89,11 @@ class _HomePageState extends State<HomePage> {
       PersistentBottomNavBarItem(
         inactiveColorPrimary: Colors.grey,
         iconSize: 26,
-        icon: Icon(Icons.home),
+        icon: Container(
+          height: 26,
+          width: 26,
+          color: Colors.red,
+        ),
         title: ('Home'),
       ),
       PersistentBottomNavBarItem(

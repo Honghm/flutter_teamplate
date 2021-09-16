@@ -15,85 +15,88 @@ class BottomNavStyle19 extends StatelessWidget {
     return this.navBarEssentials!.navBarHeight == 0
         ? SizedBox.shrink()
         : Container(
-      width: 150.0,
-      height: height,
-      color: Colors.transparent,
-      padding: EdgeInsets.only(
-          top: this.navBarEssentials!.padding?.top ??
-              this.navBarEssentials!.navBarHeight! * 0.1,
-          bottom: this.navBarEssentials!.padding?.bottom ??
-              this.navBarEssentials!.navBarHeight! * 0.1),
-      child: Container(
-        alignment: Alignment.center,
-        height: height,
-        child: ListView(
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          scrollDirection: Axis.horizontal,
-          children: <Widget>[
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Expanded(
-                  child: Container(
-                    height: height!*0.55,
-                    width: height*0.55,
-                    decoration: BoxDecoration(
-                      color: isSelected?Color(0xFFA6C2E4).withOpacity(0.2):Colors.transparent,
-                      borderRadius: BorderRadius.circular(10.0)
-                    ),
-                    child: IconTheme(
-                      data: IconThemeData(
-                          size: item.iconSize,
-                          color: isSelected
-                              ? (item.activeColorSecondary == null
-                              ? item.activeColorPrimary
-                              : item.activeColorSecondary)
-                              : item.inactiveColorPrimary == null
-                              ? item.activeColorPrimary
-                              : item.inactiveColorPrimary),
-                      child: isSelected
-                          ? item.icon
-                          : item.inactiveIcon ?? item.icon,
-                    ),
-                  ),
-                ),
-                item.title == null
-                    ? SizedBox.shrink()
-                    : Padding(
-                  padding: const EdgeInsets.only(top: 5.0),
-                  child: Material(
-                    type: MaterialType.transparency,
-                    child: FittedBox(
-                        child: Text(
-                          item.title!,
-                          style: item.textStyle != null
-                              ? (item.textStyle!.apply(
-                              color: isSelected
-                                  ? (item.activeColorSecondary ==
-                                  null
-                                  ? item.activeColorPrimary
-                                  : item.activeColorSecondary)
-                                  : item.inactiveColorPrimary))
-                              : TextStyle(
-                              color: isSelected
-                                  ? (item.activeColorSecondary ==
-                                  null
-                                  ? item.activeColorPrimary
-                                  : item.activeColorSecondary)
-                                  : item.inactiveColorPrimary,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 12.0),
-                        )),
-                  ),
-                )
-              ],
-            )
-          ],
-        ),
-      ),
-    );
+            width: 150.0,
+            height: height,
+            color: Colors.transparent,
+            padding: EdgeInsets.only(
+                top: this.navBarEssentials!.padding?.top ??
+                    this.navBarEssentials!.navBarHeight! * 0.1,
+                bottom: this.navBarEssentials!.padding?.bottom ??
+                    this.navBarEssentials!.navBarHeight! * 0.1),
+            child: Container(
+              alignment: Alignment.center,
+              height: height,
+              child: ListView(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                scrollDirection: Axis.horizontal,
+                children: <Widget>[
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Container(
+                        width: height! * 0.5,
+                        height: height * 0.5,
+                        decoration: BoxDecoration(
+                            color: isSelected?Color(0xFFA6C2E4).withOpacity(0.2):Colors.transparent,
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            IconTheme(
+                              data: IconThemeData(
+                                  size: item.iconSize,
+                                  color: isSelected
+                                      ? (item.activeColorSecondary == null
+                                          ? item.activeColorPrimary
+                                          : item.activeColorSecondary)
+                                      : item.inactiveColorPrimary == null
+                                          ? item.activeColorPrimary
+                                          : item.inactiveColorPrimary),
+                              child: isSelected
+                                  ? item.icon
+                                  : item.inactiveIcon ?? item.icon,
+                            )
+                          ],
+                        ),
+                      ),
+                      item.title == null
+                          ? SizedBox.shrink()
+                          : Padding(
+                              padding: const EdgeInsets.only(top: 5.0),
+                              child: Material(
+                                type: MaterialType.transparency,
+                                child: FittedBox(
+                                    child: Text(
+                                  item.title!,
+                                  style: item.textStyle != null
+                                      ? (item.textStyle!.apply(
+                                          color: isSelected
+                                              ? (item.activeColorSecondary ==
+                                                      null
+                                                  ? item.activeColorPrimary
+                                                  : item.activeColorSecondary)
+                                              : item.inactiveColorPrimary))
+                                      : TextStyle(
+                                          color: isSelected
+                                              ? (item.activeColorSecondary ==
+                                                      null
+                                                  ? item.activeColorPrimary
+                                                  : item.activeColorSecondary)
+                                              : item.inactiveColorPrimary,
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 12.0),
+                                )),
+                              ),
+                            )
+                    ],
+                  )
+                ],
+              ),
+            ),
+          );
   }
 
   Widget _buildMiddleItem(
@@ -101,95 +104,97 @@ class BottomNavStyle19 extends StatelessWidget {
     return this.navBarEssentials!.navBarHeight == 0
         ? SizedBox.shrink()
         : Padding(
-      padding: EdgeInsets.only(
-          top: this.navBarEssentials!.padding?.top ?? 0.0,
-          bottom: this.navBarEssentials!.padding?.bottom ?? 0.0),
-      child: Stack(
-        children: <Widget>[
-          Transform.translate(
-            offset: Offset(0, -15),
-            child: Center(
-              child: Container(
-                width:height??55.0,
-                height: height?? 55.0,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: item.activeColorPrimary,
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: <Color>[
-                      Color(0xFF26CBFF), // yellow sun
-                      Color(0xFF6980FD), // blue sky
-                    ],
-                  ),
-                  border:
-                  Border.all(color: Colors.transparent, width: 5.0),
-                  boxShadow: this.navBarDecoration!.boxShadow,
-                ),
-                child: Container(
-                  alignment: Alignment.center,
-                  height: height??55.0,
-                  child: ListView(
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    scrollDirection: Axis.horizontal,
-                    children: <Widget>[
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          Expanded(
-                            child: IconTheme(
+            padding: EdgeInsets.only(
+                top: this.navBarEssentials!.padding?.top ??
+                    this.navBarEssentials!.navBarHeight! *0,
+                bottom: this.navBarEssentials!.padding?.bottom ??
+                    this.navBarEssentials!.navBarHeight! * 0.1),
+            child: Container(
+              alignment: Alignment.center,
+              height: height,
+              child: ListView(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                scrollDirection: Axis.horizontal,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: height! * 0.6,
+                        height: height * 0.6,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: item.activeColorPrimary,
+                          gradient: LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: <Color>[
+                              Color(0xFF26CBFF), // yellow sun
+                              Color(0xFF6980FD), // blue sky
+                            ],
+                          ),
+                          boxShadow: this.navBarDecoration!.boxShadow,
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            IconTheme(
                               data: IconThemeData(
                                   size: item.iconSize,
-                                  color: item.activeColorSecondary == null
-                                      ? item.activeColorPrimary
-                                      : item.activeColorSecondary),
+                                  color: isSelected
+                                      ? (item.activeColorSecondary == null
+                                          ? item.activeColorPrimary
+                                          : item.activeColorSecondary)
+                                      : item.inactiveColorPrimary == null
+                                          ? item.activeColorPrimary
+                                          : item.inactiveColorPrimary),
                               child: isSelected
                                   ? item.icon
                                   : item.inactiveIcon ?? item.icon,
-                            ),
-                          ),
-                        ],
-                      )
+                            )
+                          ],
+                        ),
+                      ),
+                      item.title == null
+                          ? SizedBox.shrink()
+                          : Padding(
+                              padding: const EdgeInsets.only(top: 5.0),
+                              child: Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Material(
+                                  type: MaterialType.transparency,
+                                  child: FittedBox(
+                                      child: Text(
+                                        item.title!,
+                                        style: item.textStyle != null
+                                            ? (item.textStyle!.apply(
+                                            color: isSelected
+                                                ? (item.activeColorSecondary ==
+                                                null
+                                                ? item.activeColorPrimary
+                                                : item.activeColorSecondary)
+                                                : item.inactiveColorPrimary))
+                                            : TextStyle(
+                                            color: isSelected
+                                                ? (item.activeColorSecondary ==
+                                                null
+                                                ? item.activeColorPrimary
+                                                : item.activeColorSecondary)
+                                                : item.inactiveColorPrimary,
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 12.0),
+                                  )),
+                                ),
+                              ),
+                            )
                     ],
-                  ),
-                ),
+                  )
+                ],
               ),
-            ),
-          ),
-          item.title == null
-              ? SizedBox.shrink()
-              : Padding(
-            padding: const EdgeInsets.only(bottom: 5.0),
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Material(
-                type: MaterialType.transparency,
-                child: FittedBox(
-                    child: Text(
-                      item.title!,
-                      style: item.textStyle != null
-                          ? (item.textStyle!.apply(
-                          color: isSelected
-                              ? (item.activeColorSecondary == null
-                              ? item.activeColorPrimary
-                              : item.activeColorSecondary)
-                              : item.inactiveColorPrimary))
-                          : TextStyle(
-                          color: isSelected
-                              ? (item.activeColorPrimary)
-                              : item.inactiveColorPrimary,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 12.0),
-                    )),
-              ),
-            ),
-          )
-        ],
-      ),
-    );
+            ));
   }
 
   @override
@@ -202,12 +207,12 @@ class BottomNavStyle19 extends StatelessWidget {
         children: <Widget>[
           ClipRRect(
             borderRadius:
-            this.navBarDecoration!.borderRadius ?? BorderRadius.zero,
+                this.navBarDecoration!.borderRadius ?? BorderRadius.zero,
             child: BackdropFilter(
               filter: this
-                  .navBarEssentials!
-                  .items![this.navBarEssentials!.selectedIndex!]
-                  .filter ??
+                      .navBarEssentials!
+                      .items![this.navBarEssentials!.selectedIndex!]
+                      .filter ??
                   ImageFilter.blur(sigmaX: 0.5, sigmaY: 0.5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -229,10 +234,10 @@ class BottomNavStyle19 extends StatelessWidget {
                       child: index == midIndex
                           ? Container(width: 150, color: Colors.transparent)
                           : _buildItem(
-                          context,
-                          item,
-                          this.navBarEssentials!.selectedIndex == index,
-                          this.navBarEssentials!.navBarHeight),
+                              context,
+                              item,
+                              this.navBarEssentials!.selectedIndex == index,
+                              this.navBarEssentials!.navBarHeight),
                     ),
                   );
                 }).toList(),
@@ -242,23 +247,23 @@ class BottomNavStyle19 extends StatelessWidget {
           this.navBarEssentials!.navBarHeight == 0
               ? SizedBox.shrink()
               : Center(
-            child: GestureDetector(
-                onTap: () {
-                  if (this.navBarEssentials!.items![midIndex].onPressed !=
-                      null) {
-                    this.navBarEssentials!.items![midIndex].onPressed!(
-                        this
-                            .navBarEssentials!
-                            .selectedScreenBuildContext);
-                  } else {
-                    this.navBarEssentials!.onItemSelected!(midIndex);
-                  }
-                },
-                child: _buildMiddleItem(
-                    this.navBarEssentials!.items![midIndex],
-                    this.navBarEssentials!.selectedIndex == midIndex,
-                    this.navBarEssentials!.navBarHeight!*0.58)),
-          )
+                  child: GestureDetector(
+                      onTap: () {
+                        if (this.navBarEssentials!.items![midIndex].onPressed !=
+                            null) {
+                          this.navBarEssentials!.items![midIndex].onPressed!(
+                              this
+                                  .navBarEssentials!
+                                  .selectedScreenBuildContext);
+                        } else {
+                          this.navBarEssentials!.onItemSelected!(midIndex);
+                        }
+                      },
+                      child: _buildMiddleItem(
+                          this.navBarEssentials!.items![midIndex],
+                          this.navBarEssentials!.selectedIndex == midIndex,
+                          this.navBarEssentials!.navBarHeight)),
+                )
         ],
       ),
     );
