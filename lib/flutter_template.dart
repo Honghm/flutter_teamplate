@@ -17,7 +17,6 @@ import 'package:wechat_camera_picker/wechat_camera_picker.dart';
 import 'package:flutter/cupertino.dart' show CupertinoApp;
 
 
-
 part 'persistent-tab-view/persistent-tab-view.widget.dart';
 part 'button/build_button.dart';
 part 'button/progress_button/progress_button_animation.dart';

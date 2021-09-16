@@ -134,7 +134,7 @@ class _HomePageState extends State<HomePage> {
           screens: _options,
           items: _navBarsItems(),
           confineInSafeArea: true,
-          navBarHeight: 95,
+          navBarHeight: 90,
           backgroundColor: Colors.white,
           handleAndroidBackButtonPress: true,
           resizeToAvoidBottomInset: true,
