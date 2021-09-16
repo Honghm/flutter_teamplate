@@ -20,9 +20,9 @@ class BottomNavStyle19 extends StatelessWidget {
       color: Colors.transparent,
       padding: EdgeInsets.only(
           top: this.navBarEssentials!.padding?.top ??
-              this.navBarEssentials!.navBarHeight! * 0.15,
+              this.navBarEssentials!.navBarHeight! * 0.1,
           bottom: this.navBarEssentials!.padding?.bottom ??
-              this.navBarEssentials!.navBarHeight! * 0.12),
+              this.navBarEssentials!.navBarHeight! * 0.1),
       child: Container(
         alignment: Alignment.center,
         height: height,
