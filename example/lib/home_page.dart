@@ -46,6 +46,13 @@ class _HomePageState extends State<HomePage> {
             child: PinCodeTextField(
               length: 6,
               controller: controller,
+              symbolPosition: 2,
+              symbol: Container(
+                height: 2,
+                width: 10,
+                margin: EdgeInsets.only(left: 5),
+                color: Colors.black,
+              ),
               showKeyboard: false,
               appContext: context,
               errorAnimationController: errorController,
