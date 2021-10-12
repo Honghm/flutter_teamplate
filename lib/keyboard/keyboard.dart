@@ -139,7 +139,7 @@ class _KeyboardState extends State<Keyboard> {
                   padding: EdgeInsets.only(top: 3),
                   child: Text(
                     value2,
-                    style: widget.textStyle,
+                    style: widget.textStyle!.copyWith(fontSize: widget.textStyle!.fontSize!/2),
                   ),
                 )
             ],
