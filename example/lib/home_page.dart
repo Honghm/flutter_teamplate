@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_template/flutter_template.dart';
+import 'package:intl_phone_number_input/intl_phone_number_input.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -127,25 +129,61 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
     _controller.dispose();
   }
+  final TextEditingController controller = TextEditingController();
+  String initialCountry = 'NG';
+  PhoneNumber number = PhoneNumber(isoCode: 'NG');
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
       backgroundColor: Colors.white,
       body: Center(
-        child:  PersistentTabView(
-          this.context,
-          controller: _controller,
-          screens: _options,
-          items: _navBarsItems(),
-          confineInSafeArea: true,
-          navBarHeight: 90,
-          backgroundColor: Colors.white,
-          handleAndroidBackButtonPress: true,
-          resizeToAvoidBottomInset: true,
-          hideNavigationBarWhenKeyboardShows: true,
-          popAllScreensOnTapOfSelectedTab: true,
-          navBarStyle: NavBarStyle.style19,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            InternationalPhoneNumberInput(
+              onInputChanged: (PhoneNumber number) {
+                print(number.phoneNumber);
+              },
+              onInputValidated: (bool value) {
+                print(value);
+              },
+              selectorConfig: SelectorConfig(
+                width: 90,
+                decoration: BoxDecoration(
+                  border: Border.all()
+                ),
+                selectorType: PhoneInputSelectorType.DROPDOWN,
+              ),
+              ignoreBlank: false,
+              autoValidateMode: AutovalidateMode.disabled,
+              selectorTextStyle: TextStyle(color: Colors.black),
+              initialValue: number,
+              textFieldController: controller,
+              formatInput: false,
+              keyboardType:
+              TextInputType.numberWithOptions(signed: true, decimal: true),
+              inputBorder: OutlineInputBorder(),
+              onSaved: (PhoneNumber number) {
+                print('On Saved: $number');
+              },
+            ),
+          ],
         ),
+        // child:  PersistentTabView(
+        //   this.context,
+        //   controller: _controller,
+        //   screens: _options,
+        //   items: _navBarsItems(),
+        //   confineInSafeArea: true,
+        //   navBarHeight: 90,
+        //   backgroundColor: Colors.white,
+        //   handleAndroidBackButtonPress: true,
+        //   resizeToAvoidBottomInset: true,
+        //   hideNavigationBarWhenKeyboardShows: true,
+        //   popAllScreensOnTapOfSelectedTab: true,
+        //   navBarStyle: NavBarStyle.style19,
+        // ),
         // child: Column(
         //   mainAxisAlignment: MainAxisAlignment.center,
         //   crossAxisAlignment: CrossAxisAlignment.center,

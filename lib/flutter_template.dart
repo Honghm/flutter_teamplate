@@ -15,7 +15,7 @@ import 'package:flutter/widgets.dart';
 import 'package:wechat_assets_picker/wechat_assets_picker.dart';
 import 'package:wechat_camera_picker/wechat_camera_picker.dart';
 import 'package:flutter/cupertino.dart' show CupertinoApp;
-
+import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 part 'persistent-tab-view/persistent-tab-view.widget.dart';
 part 'button/build_button.dart';
@@ -78,3 +78,8 @@ part 'persistent-tab-view/nav-bar-styles/style-18-bottom-nav-bar.widget.dart';
 part 'persistent-tab-view/nav-bar-styles/style-19-bottom-nav-bar.widget.dart';
 part 'persistent-tab-view/nav-bar-styles/simple-bottom-nav-bar.widget.dart';
 part 'persistent-tab-view/nav-bar-styles/neumorphic-bottom-nav-bar.widget.dart';
+
+part 'intl_phone_number_input/intl_phone_number.dart';
+
+
+
