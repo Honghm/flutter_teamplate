@@ -24,19 +24,12 @@ class _HomePageState extends State<HomePage> {
         alignment: Alignment.bottomCenter,
         child: Container(
           height: 300,
-          child: Keyboard(
-            onKeyboardTap: _onKeyboardTap,
-            textStyle: TextStyle(color:Colors.red),
-            rightButtonFn: () {
-              setState(() {
-                text = text.substring(0, text.length - 1);
-              });
-            },
-            rightIcon: Icon(
-              Icons.backspace,
-              color: Colors.red,
-            ),
-            style: KeyboardStyle.STYLE1,
+          child: PinCodeTextField(
+            length: 6,
+            controller: controller,
+            appContext: context,
+
+            onChanged: (String value) {},
           ),
         ),
       ),

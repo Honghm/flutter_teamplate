@@ -496,7 +496,7 @@ class _PinCodeTextFieldState extends State<PinCodeTextField>
     }
 
 
-    return _inputList[index!].isEmpty?(widget.hintWidget!):Text(
+    return _inputList[index!].isEmpty?(widget.hintWidget??Container()):Text(
       widget.obscureText && _inputList[index].isNotEmpty && showObscured
           ? widget.obscuringCharacter
           : _inputList[index],
