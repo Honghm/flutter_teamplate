@@ -159,7 +159,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.1.5"
+    version: "0.1.6"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -199,14 +199,14 @@ packages:
     source: hosted
     version: "4.0.0"
   intl_phone_number_input:
-    dependency: "direct main"
+    dependency: transitive
     description:
       path: intl_phone_number_input
       ref: HEAD
-      resolved-ref: "8689ed5d64b87962b210e57f059ce49948010591"
+      resolved-ref: "535881b696a789b75761f72ccfa4180633085ea6"
       url: "https://github.com/Honghm/flutter_packages"
     source: git
-    version: "0.0.2"
+    version: "0.0.3"
   js:
     dependency: transitive
     description:

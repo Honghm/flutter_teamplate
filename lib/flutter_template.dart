@@ -80,6 +80,7 @@ part 'persistent-tab-view/nav-bar-styles/simple-bottom-nav-bar.widget.dart';
 part 'persistent-tab-view/nav-bar-styles/neumorphic-bottom-nav-bar.widget.dart';
 
 part 'intl_phone_number_input/intl_phone_number.dart';
+part 'keyboard/keyboard.dart';
 
 
 
