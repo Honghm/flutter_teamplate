@@ -264,6 +264,7 @@ class _PinCodeTextFieldState extends State<PinCodeTextField>
 
   late Animation<double> _cursorAnimation;
 
+  bool hadError = false;
   DialogConfig get _dialogConfig => widget.dialogConfig == null
       ? DialogConfig()
       : DialogConfig(
@@ -329,12 +330,21 @@ class _PinCodeTextFieldState extends State<PinCodeTextField>
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         _controller.reverse();
+        Future.delayed(Duration(seconds: 2), () {
+          setState(() {
+            hadError = false;
+          });
+        });
+
       }
     });
 
     if (widget.errorAnimationController != null) {
       _errorAnimationSubscription =
           widget.errorAnimationController!.stream.listen((errorAnimation) {
+            setState(() {
+              hadError = true;
+            });
         if (errorAnimation == ErrorAnimationType.shake) {
           _controller.forward();
         }
@@ -470,6 +480,10 @@ class _PinCodeTextFieldState extends State<PinCodeTextField>
 
   // selects the right color for the field
   Color _getColorFromIndex(int index) {
+    if(hadError){
+      return _pinTheme.errorColor;
+    }
+
     if (!widget.enabled) {
       return _pinTheme.disabledColor;
     }
@@ -513,6 +527,8 @@ class _PinCodeTextFieldState extends State<PinCodeTextField>
 
 // selects the right fill color for the field
   Color _getFillColorFromIndex(int index) {
+    if(hadError)
+      return _pinTheme.errorColor;
     if (!widget.enabled) {
       return _pinTheme.disabledColor;
     }
