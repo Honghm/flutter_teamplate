@@ -1,5 +1,6 @@
 
 import 'package:example/home_page.dart';
+import 'package:example/persistent_tab_bar_view.dart';
 import 'package:flutter/material.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +22,7 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:HomePage(),
+      home:PersistentTabBarView(),
     );
   }
 }

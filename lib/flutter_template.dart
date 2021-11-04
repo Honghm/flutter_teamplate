@@ -83,5 +83,7 @@ part 'intl_phone_number_input/intl_phone_number.dart';
 part 'keyboard/keyboard.dart';
 part 'animation/shake_animation.dart';
 
+// part 'module_login/verify_code/verify_code_screen.dart';
+
 
 

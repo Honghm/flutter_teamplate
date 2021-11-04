@@ -42,6 +42,7 @@ class _ShakeAnimationState extends State<ShakeAnimation>
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         _controller.reverse();
+        if(widget.shakeEnd!()!=null)
         widget.shakeEnd!();
       }
     });
