@@ -1,6 +1,6 @@
 
 
-part of flutter_template;
+part of flutter_modules;
 class PickMethod {
   const PickMethod({
     required this.icon,

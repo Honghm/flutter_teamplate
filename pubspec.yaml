@@ -1,8 +1,7 @@
-name: flutter_template
+name: flutter_modules
 description: Template of some commonly used widgets.
-version: 0.2.4
-#author: Honghm<17520526@gm.uit.edu.vn>
-homepage: https://github.com/Honghm/flutter_template
+version: 0.0.1
+homepage: https://github.com/Covisoft/flutter_modules
 
 environment:
   sdk: ">=2.12.0 <3.0.0"

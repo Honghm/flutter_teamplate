@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/flutter_template.dart';
+import 'package:flutter_modules/flutter_modules.dart';
 
 class PersistentTabBarView extends StatefulWidget {
   const PersistentTabBarView({Key? key}) : super(key: key);

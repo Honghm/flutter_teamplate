@@ -1,4 +1,4 @@
-part of flutter_template;
+part of flutter_modules;
 class BlinkingPoint extends StatefulWidget {
   final double? xCoor;
   final double? yCoor;

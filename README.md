@@ -1,24 +1,24 @@
-# flutter_template
+# flutter_modules
 
 A new Flutter package.
 
 
 ## Usage
-[Example] (https://github.com/Honghm/flutter_template/blob/main/example/example.dart)
+[Example] (https://github.com/Covisoft/flutter_modules/tree/main/example)
 
 To use this package: *add the dependency to your [pubspec.yaml] file
 ```yaml
  dependencies:
     flutter:
         sdk: flutter
-    flutter_template:
+    flutter_modules:
 ```
 ## Add to your dart file
 ```dart
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_template/flutter_template.dart';
+import 'package:flutter_modules/flutter_modules.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -207,4 +207,4 @@ multiple Flutter or Dart projects.
 For help getting started with Flutter, view our 
 [online documentation](https://flutter.dev/docs), which offers tutorials, 
 samples, guidance on mobile development, and a full API reference.
-"# flutter_template"
+"# flutter_modules"

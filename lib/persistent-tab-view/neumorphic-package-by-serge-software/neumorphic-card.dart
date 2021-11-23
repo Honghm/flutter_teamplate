@@ -1,6 +1,6 @@
 /// Based on the code by Ivan Cherepanov
 /// https://medium.com/flutter-community/neumorphic-designs-in-flutter-eab9a4de2059
-part of flutter_template;
+part of flutter_modules;
 
 enum CurveType {
   concave,

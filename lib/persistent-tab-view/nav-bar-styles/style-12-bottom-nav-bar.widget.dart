@@ -1,4 +1,4 @@
-part of flutter_template;
+part of flutter_modules;
 
 class BottomNavStyle12 extends StatefulWidget {
   final NavBarEssentials? navBarEssentials;

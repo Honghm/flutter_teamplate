@@ -1,4 +1,4 @@
-part of flutter_template;
+part of flutter_modules;
 
 ///Navigation bar controller for `PersistentTabView`.
 class PersistentTabController extends ChangeNotifier {
