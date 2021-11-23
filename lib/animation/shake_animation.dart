@@ -1,4 +1,4 @@
-part of flutter_template;
+part of flutter_modules;
 
 class ShakeAnimation extends StatefulWidget {
   final StreamController<ErrorAnimationType> shakeController;

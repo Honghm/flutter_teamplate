@@ -1,7 +1,7 @@
 // Author: Bilal Shahid
 // For queries, contact me at bilalscheema@gmail.com
 
-part of flutter_template;
+part of flutter_modules;
 
 ///A highly customizable persistent navigation bar for flutter.
 ///

@@ -1,4 +1,4 @@
-part of flutter_template;
+part of flutter_modules;
 
 /// Pin code text fields which automatically changes focus and validates
 class PinCodeTextField extends StatefulWidget {

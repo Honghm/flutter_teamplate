@@ -1,5 +1,5 @@
 
-part of flutter_template;
+part of flutter_modules;
 
 
 class ButtonWithIcon {

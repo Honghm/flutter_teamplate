@@ -1,4 +1,4 @@
-part of flutter_template;
+part of flutter_modules;
 
 class CustomTabView extends StatefulWidget {
   const CustomTabView({

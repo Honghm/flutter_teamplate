@@ -1,4 +1,4 @@
-part of flutter_template;
+part of flutter_modules;
 
 ///An item widget for the `PersistentTabView`.
 class PersistentBottomNavBarItem {

@@ -1,4 +1,4 @@
-part of flutter_template;
+part of flutter_modules;
 
 class PinTheme {
   /// Colors of the input fields which have inputs. Default is [Colors.green]

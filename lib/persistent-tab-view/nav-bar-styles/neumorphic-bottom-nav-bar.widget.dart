@@ -1,4 +1,4 @@
-part of flutter_template;
+part of flutter_modules;
 
 class NeumorphicBottomNavBar extends StatelessWidget {
   final NavBarEssentials? navBarEssentials;
