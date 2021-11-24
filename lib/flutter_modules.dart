@@ -44,7 +44,7 @@ part 'persistent-tab-view/models/nav-bar-animation.model.dart';
 part 'persistent-tab-view/models/page-route-transitions.model.dart';
 part 'persistent-tab-view/models/nav-bar-essentials.model.dart';
 part 'persistent-tab-view/models/route-settings.model.dart';
-part "persistent-tab-view/models/nested_will_pop_scope.dart";
+// part "persistent-tab-view/models/nested_will_pop_scope.dart";
 
 //Utils
 part 'persistent-tab-view/utils/functions.utils.dart';

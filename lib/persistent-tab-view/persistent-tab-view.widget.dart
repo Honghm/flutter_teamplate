@@ -48,7 +48,7 @@ class PersistentTabView extends PersistentTabViewBase {
   final bool stateManagement;
 
   ///If you want to perform a custom action on Android when exiting the app, you can write your logic here. Returns context of the selected screen.
-  final Future<bool> Function(BuildContext?)? onWillPop;
+  // final Future<bool> Function(BuildContext?)? onWillPop;
 
   ///Returns the context of the selected tab.
   final Function(BuildContext?)? selectedTabScreenContext;
@@ -83,7 +83,7 @@ class PersistentTabView extends PersistentTabViewBase {
       bool popAllScreensOnTapOfSelectedTab = true,
       PopActionScreensType popActionScreens = PopActionScreensType.all,
       this.confineInSafeArea = true,
-      this.onWillPop,
+      // this.onWillPop,
       this.stateManagement = true,
       this.handleAndroidBackButtonPress = true,
       ItemAnimationProperties? itemAnimationProperties,
@@ -112,7 +112,7 @@ class PersistentTabView extends PersistentTabViewBase {
           floatingActionButton: floatingActionButton,
           resizeToAvoidBottomInset: resizeToAvoidBottomInset,
           bottomScreenMargin: bottomScreenMargin,
-          onWillPop: onWillPop,
+          // onWillPop: onWillPop,
           isCustomWidget: false,
           confineInSafeArea: confineInSafeArea,
           stateManagement: stateManagement,
@@ -147,7 +147,7 @@ class PersistentTabView extends PersistentTabViewBase {
     CutsomWidgetRouteAndNavigatorSettings routeAndNavigatorSettings =
         const CutsomWidgetRouteAndNavigatorSettings(),
     this.confineInSafeArea = true,
-    this.onWillPop,
+    // this.onWillPop,
     this.stateManagement = true,
     this.handleAndroidBackButtonPress = true,
     this.hideNavigationBar,
@@ -165,7 +165,7 @@ class PersistentTabView extends PersistentTabViewBase {
           itemCount: itemCount,
           resizeToAvoidBottomInset: resizeToAvoidBottomInset,
           bottomScreenMargin: bottomScreenMargin,
-          onWillPop: onWillPop,
+          // onWillPop: onWillPop,
           confineInSafeArea: confineInSafeArea,
           stateManagement: stateManagement,
           handleAndroidBackButtonPress: handleAndroidBackButtonPress,
@@ -666,50 +666,51 @@ class _PersistentTabViewState extends State<PersistentTabView> {
           null);
     }
 
-    if (widget.handleAndroidBackButtonPress || widget.onWillPop != null) {
-      return NestedWillPopScope(
-        onWillPop: !widget.handleAndroidBackButtonPress &&
-                widget.onWillPop != null
-            ? widget.onWillPop!(_contextList[_controller!.index])
-                as Future<bool> Function()
-            : widget.handleAndroidBackButtonPress && widget.onWillPop != null
-                ? () async {
-                    if (_controller!.index == 0 &&
-                        !Navigator.canPop(_contextList.first!)) {
-                      return widget.onWillPop!(_contextList.first);
-                    } else {
-                      if (Navigator.canPop(_contextList[_controller!.index]!)) {
-                        Navigator.pop(_contextList[_controller!.index]!);
-                      } else {
-                        if (widget.onItemSelected != null) {
-                          widget.onItemSelected!(0);
-                        }
-                        _controller!.index = 0;
-                      }
-                      return false;
-                    }
-                  }
-                : () async {
-                    if (_controller!.index == 0 &&
-                        !Navigator.canPop(_contextList.first!)) {
-                      return true;
-                    } else {
-                      if (Navigator.canPop(_contextList[_controller!.index]!)) {
-                        Navigator.pop(_contextList[_controller!.index]!);
-                      } else {
-                        if (widget.onItemSelected != null) {
-                          widget.onItemSelected!(0);
-                        }
-                        _controller!.index = 0;
-                      }
-                      return false;
-                    }
-                  },
-        child: navigationBarWidget(),
-      );
-    } else {
-      return navigationBarWidget();
-    }
+    // if (widget.handleAndroidBackButtonPress || widget.onWillPop != null) {
+    //   return NestedWillPopScope(
+    //     onWillPop: !widget.handleAndroidBackButtonPress &&
+    //             widget.onWillPop != null
+    //         ? widget.onWillPop!(_contextList[_controller!.index])
+    //             as Future<bool> Function()
+    //         : widget.handleAndroidBackButtonPress && widget.onWillPop != null
+    //             ? () async {
+    //                 if (_controller!.index == 0 &&
+    //                     !Navigator.canPop(_contextList.first!)) {
+    //                   return widget.onWillPop!(_contextList.first);
+    //                 } else {
+    //                   if (Navigator.canPop(_contextList[_controller!.index]!)) {
+    //                     Navigator.pop(_contextList[_controller!.index]!);
+    //                   } else {
+    //                     if (widget.onItemSelected != null) {
+    //                       widget.onItemSelected!(0);
+    //                     }
+    //                     _controller!.index = 0;
+    //                   }
+    //                   return false;
+    //                 }
+    //               }
+    //             : () async {
+    //                 if (_controller!.index == 0 &&
+    //                     !Navigator.canPop(_contextList.first!)) {
+    //                   return true;
+    //                 } else {
+    //                   if (Navigator.canPop(_contextList[_controller!.index]!)) {
+    //                     Navigator.pop(_contextList[_controller!.index]!);
+    //                   } else {
+    //                     if (widget.onItemSelected != null) {
+    //                       widget.onItemSelected!(0);
+    //                     }
+    //                     _controller!.index = 0;
+    //                   }
+    //                   return false;
+    //                 }
+    //               },
+    //     child: navigationBarWidget(),
+    //   );
+    // } else {
+    //   return navigationBarWidget();
+    // }
+     return navigationBarWidget();
   }
 
   void popAllScreens() {
