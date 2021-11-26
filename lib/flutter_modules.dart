@@ -12,8 +12,8 @@ import 'package:flutter_modules/pin_code/cursor_painter.dart';
 import 'package:flutter_modules/pin_code/models/platform.dart';
 import 'package:flutter_modules/button/bell/circle.dart';
 import 'package:flutter/widgets.dart';
-import 'package:wechat_assets_picker/wechat_assets_picker.dart';
-import 'package:wechat_camera_picker/wechat_camera_picker.dart';
+// import 'package:wechat_assets_picker/wechat_assets_picker.dart';
+// import 'package:wechat_camera_picker/wechat_camera_picker.dart';
 import 'package:flutter/cupertino.dart' show CupertinoApp;
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
@@ -30,7 +30,7 @@ part 'slide/range_slider.dart';
 part 'button/bell/blinking_point.dart';
 part 'camera/constants/custom_pick_method.dart';
 part 'camera/constants/extensions.dart';
-part 'camera/constants/picker_method.dart';
+// part 'camera/constants/picker_method.dart';
 
 
 //Models

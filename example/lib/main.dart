@@ -1,7 +1,7 @@
 
-import 'package:example/home_page.dart';
-import 'package:example/persistent_tab_bar_view.dart';
 import 'package:flutter/material.dart';
+
+import 'persistent_tab_bar_view.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
