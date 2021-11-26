@@ -1,6 +1,6 @@
 name: flutter_modules
 description: Template of some commonly used widgets.
-version: 0.0.7
+version: 0.0.8
 homepage: https://github.com/Covisoft/flutter_modules
 
 environment:
