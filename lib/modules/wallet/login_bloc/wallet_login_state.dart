@@ -1,6 +1,6 @@
-part of 'login_bloc.dart';
+part of 'wallet_login_bloc.dart';
 
-class LoginState extends Equatable {
+class WalletLoginState extends Equatable {
   final String email;
   final String password;
   final bool rememberMe;
@@ -18,7 +18,7 @@ class LoginState extends Equatable {
         passwordValidator,
         isNotification,
       ];
-  factory LoginState.initial() => LoginState(
+  factory WalletLoginState.initial() => WalletLoginState(
         email: '',
         password: "",
         buttonStatus: ButtonStatus.idle,
@@ -30,7 +30,7 @@ class LoginState extends Equatable {
 
 //<editor-fold desc="Data Methods">
 
-  const LoginState({
+  const WalletLoginState({
     required this.email,
     required this.password,
     required this.rememberMe,
@@ -42,7 +42,7 @@ class LoginState extends Equatable {
 
   @override
   String toString() {
-    return 'LoginState{' +
+    return 'WalletLoginState{' +
         ' email: $email,' +
         ' password: $password,' +
         ' rememberMe: $rememberMe,' +
@@ -53,7 +53,7 @@ class LoginState extends Equatable {
         '}';
   }
 
-  LoginState copyWith({
+  WalletLoginState copyWith({
     String? email,
     String? password,
     bool? rememberMe,
@@ -62,7 +62,7 @@ class LoginState extends Equatable {
     String? passwordValidator,
     bool? isNotification,
   }) {
-    return LoginState(
+    return WalletLoginState(
       email: email ?? this.email,
       password: password ?? this.password,
       rememberMe: rememberMe ?? this.rememberMe,
@@ -85,8 +85,8 @@ class LoginState extends Equatable {
     };
   }
 
-  factory LoginState.fromMap(Map<String, dynamic> map) {
-    return LoginState(
+  factory WalletLoginState.fromMap(Map<String, dynamic> map) {
+    return WalletLoginState(
       email: map['email'] as String,
       password: map['password'] as String,
       rememberMe: map['rememberMe'] as bool,

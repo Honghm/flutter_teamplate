@@ -11,7 +11,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modules/constants/color_configs.dart';
 import 'package:flutter_modules/constants/text_configs.dart';
-import 'package:flutter_modules/modules/wallet/login_bloc/login_bloc.dart';
+import 'package:flutter_modules/modules/wallet/login_bloc/wallet_login_bloc.dart';
 import 'package:flutter_modules/pin_code/cursor_painter.dart';
 import 'package:flutter_modules/pin_code/models/platform.dart';
 import 'package:flutter_modules/button/bell/circle.dart';
@@ -39,7 +39,7 @@ export 'likk_picker/src/gallery/gallery_view.dart';
 // export 'likk_picker/src/playground/src/widgets/playground_overlay.dart';
 // export 'likk_picker/src/playground/src/widgets/playground_sticker_picker.dart';
 // export 'likk_picker/src/playground/src/widgets/playground_textfield.dart';
-export 'modules/wallet/login_bloc/login_bloc.dart';
+export 'modules/wallet/login_bloc/wallet_login_bloc.dart';
 
 part 'persistent-tab-view/persistent-tab-view.widget.dart';
 part 'button/build_button.dart';

@@ -31,16 +31,16 @@ class _Screen1State extends State<Screen1> {
   }
 }
 
-class DemoLogin extends StatelessWidget {
-  const DemoLogin({
+class DemoWalletLogin extends StatelessWidget {
+  const DemoWalletLogin({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => LoginBloc(),
-      child: LoginScreen(
+      create: (context) => WalletLoginBloc(),
+      child: WalletLoginScreen(
         logo: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -91,7 +91,7 @@ class DemoLogin extends StatelessWidget {
         subtitleStyle: TextStyle(color: Colors.orange),
         textFieldStyle:
             TextStyle(fontSize: 20, color: Colors.lightBlueAccent),
-        onLoginClicked: (
+        onWalletLoginClicked: (
           String email,
           String password,
           void Function() onSuccess,

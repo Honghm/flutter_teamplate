@@ -3,15 +3,15 @@ part of flutter_modules;
 
 
 
-typedef LoginCallback = Future<void> Function(String email, String password,
+typedef WalletLoginCallback = Future<void> Function(String email, String password,
     void Function() onSuccess, void Function() onFailed);
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({
+class WalletLoginScreen extends StatefulWidget {
+  const WalletLoginScreen({
     Key? key,
     this.rememberMeChanged,
     this.onForgotPasswordClicked,
-    required this.onLoginClicked,
+    required this.onWalletLoginClicked,
     this.primaryColor,
     this.backgroundColor,
     this.subtitle,
@@ -37,7 +37,7 @@ class LoginScreen extends StatefulWidget {
 
   final ValueChanged<bool>? rememberMeChanged;
   final Future<bool?> Function()? onForgotPasswordClicked;
-  final LoginCallback onLoginClicked;
+  final WalletLoginCallback onWalletLoginClicked;
   final Color? primaryColor;
   final Color? backgroundColor;
   final String? subtitle;
@@ -55,20 +55,20 @@ class LoginScreen extends StatefulWidget {
   final InputDecoration? textFieldDecoration;
 
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _WalletLoginScreenState createState() => _WalletLoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _WalletLoginScreenState extends State<WalletLoginScreen> {
   final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
 
-  LoginBloc? _bloc;
+  WalletLoginBloc? _bloc;
   TextStyle get buttonTextStyle =>
       widget.buttonTextStyle ?? TextConfigs.kTextConfig;
   @override
   void didChangeDependencies() {
     if (_bloc == null) {
-      _bloc = BlocProvider.of<LoginBloc>(context, listen: false);
+      _bloc = BlocProvider.of<WalletLoginBloc>(context, listen: false);
     }
     _email.text = _bloc!.state.email;
     _password.text = _bloc!.state.password;
@@ -79,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size;
-    return BlocListener<LoginBloc, LoginState>(
+    return BlocListener<WalletLoginBloc, WalletLoginState>(
       listener: (context, state) {
         if (state.isNotification) {
           Flushbar(
@@ -126,7 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 TextFormField(
                   controller: _email,
                   style: widget.textFieldStyle ?? TextConfigs.kText40Normal_Dark,
-                  onChanged: (val) => _bloc!.add(LoginEmailChanged(val)),
+                  onChanged: (val) => _bloc!.add(WalletLoginEmailChanged(val)),
                   cursorColor: widget.primaryColor ?? ColorConfigs.kColorPrimary,
                   keyboardType: TextInputType.emailAddress,
                   decoration: widget.textFieldDecoration ??
@@ -147,7 +147,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         hintText: "Email",
                       ),
                 ),
-                BlocSelector<LoginBloc, LoginState, String>(
+                BlocSelector<WalletLoginBloc, WalletLoginState, String>(
                   selector: (state) => state.emailValidator,
                   builder: (context, emailValidator) {
                     return SizedBox(
@@ -165,7 +165,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   },
                 ),
                 TextFormField(
-                  onChanged: (val) => _bloc!.add(LoginPasswordChanged(val)),
+                  onChanged: (val) => _bloc!.add(WalletLoginPasswordChanged(val)),
                   controller: _password,
                   style: widget.textFieldStyle ?? TextConfigs.kText40Normal_Dark,
                   cursorColor: widget.primaryColor ?? ColorConfigs.kColorPrimary,
@@ -188,7 +188,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         hintText: "Password",
                       ),
                 ),
-                BlocSelector<LoginBloc, LoginState, String>(
+                BlocSelector<WalletLoginBloc, WalletLoginState, String>(
                   selector: (state) => state.passwordValidator,
                   builder: (context, passwordValidator) {
                     return passwordValidator != ""
@@ -208,14 +208,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 if (widget.rememberMeText != null)
                   InkWell(
                     onTap: () {
-                      _bloc!.add(LoginRememberMeChanged(
+                      _bloc!.add(WalletLoginRememberMeChanged(
                           !_bloc!.state.rememberMe, widget.rememberMeChanged!));
                     },
                     child: Container(
                       height: 84.h,
                       child: Row(
                         children: [
-                          BlocSelector<LoginBloc, LoginState, bool>(
+                          BlocSelector<WalletLoginBloc, WalletLoginState, bool>(
                             selector: (state) => state.rememberMe,
                             builder: (context, rememberMe) {
                               return Container(
@@ -254,7 +254,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 Container(
                   alignment: Alignment.center,
-                  child: BlocSelector<LoginBloc, LoginState, ButtonStatus>(
+                  child: BlocSelector<WalletLoginBloc, WalletLoginState, ButtonStatus>(
                     selector: (state) => state.buttonStatus,
                     builder: (context, buttonStatus) {
                       return ProgressButtonAnimation(
@@ -262,7 +262,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         maxWidth: _size.width,
                         state: buttonStatus,
                         onPressed: () => _bloc!.add(
-                          LoginClicked(widget.onLoginClicked),
+                          WalletLoginClicked(widget.onWalletLoginClicked),
                         ),
                         stateWidgets: {
                           ButtonStatus.idle: Text(
@@ -300,7 +300,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     alignment: Alignment.center,
                     child: InkWell(
                       onTap: () {
-                        _bloc!.add(LoginForgotPasswordClicked(
+                        _bloc!.add(WalletLoginForgotPasswordClicked(
                             widget.onForgotPasswordClicked!));
                       },
                       child: Text(
