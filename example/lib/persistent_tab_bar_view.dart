@@ -1,3 +1,4 @@
+import 'package:example/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modules/flutter_modules.dart';
 
@@ -19,7 +20,7 @@ class _PersistentTabBarViewState extends State<PersistentTabBarView> {
   }
 
   List<Widget> _buildScreens() {
-    return [Container(), Container(), Container(), Container(), Container()];
+    return [HomePage(), Container(), Container(), Container(), Container()];
   }
 
   List<PersistentBottomNavBarItem> _navBarsItems() {
@@ -78,6 +79,10 @@ class _PersistentTabBarViewState extends State<PersistentTabBarView> {
       context,
       controller: _controller,
       screens: _buildScreens(),
+      onWillPop: (context)async{
+        print("pop $context");
+        return false;
+      },
       backgroundColor: Colors.blue,
       items: _navBarsItems(),
       decoration: NavBarDecoration(

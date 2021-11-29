@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:example/screen1.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modules/flutter_modules.dart';
 
@@ -19,8 +20,8 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     errorController = StreamController<ErrorAnimationType>();
     super.initState();
-
   }
+
   @override
   void dispose() {
     controller.dispose();
@@ -40,7 +41,23 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Color(0xFFD1D5DB),
       body: Column(
         children: [
-          SizedBox(height: 100,),
+          SizedBox(
+            height: 100,
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Screen1()));
+            },
+            child: Container(
+              height: 50,
+              width: 200,
+              color: Colors.amber,
+            ),
+          ),
+          SizedBox(
+            height: 100,
+          ),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: PinCodeTextField(
@@ -62,17 +79,17 @@ class _HomePageState extends State<HomePage> {
                   borderWidth: 1,
                   activeColor: Color(0xFF01AB01),
                   inactiveColor: Color(0xFF888888),
-                  shape: PinCodeFieldShape.box
-              ),
+                  shape: PinCodeFieldShape.box),
               onChanged: (String value) {
-                if(value.length==6){
-                  errorController!.add(ErrorAnimationType
-                      .shake);
+                if (value.length == 6) {
+                  errorController!.add(ErrorAnimationType.shake);
                 }
               },
             ),
           ),
-          SizedBox(height: 100,),
+          SizedBox(
+            height: 100,
+          ),
           Expanded(
             child: Align(
                 alignment: Alignment.bottomCenter,
@@ -82,14 +99,13 @@ class _HomePageState extends State<HomePage> {
                   child: Keyboard(
                     onKeyboardTap: _onKeyboardTap,
                     textStyle: TextStyle(color: Colors.black, fontSize: 20),
-
                     numHeight: 50,
                     numWidth: 100,
                     rightButtonFn: () {
                       setState(() {
-                       if(controller.text.length>0)
-                         controller.text = controller.text
-                             .substring(0, controller.text.length - 1);
+                        if (controller.text.length > 0)
+                          controller.text = controller.text
+                              .substring(0, controller.text.length - 1);
                       });
                     },
                     rightIcon: Icon(
