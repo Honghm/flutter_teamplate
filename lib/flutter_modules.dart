@@ -22,7 +22,7 @@ import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 export 'package:flutter_screenutil/flutter_screenutil.dart';
-//export 'package:photo_manager/photo_manager.dart';
+export 'package:photo_manager/photo_manager.dart';
 export 'likk_picker/src/camera/camera_view.dart';
 export 'likk_picker/src/gallery/gallery_view.dart';
 
