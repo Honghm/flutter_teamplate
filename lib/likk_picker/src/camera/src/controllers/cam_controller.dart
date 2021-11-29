@@ -4,9 +4,9 @@ import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_modules/flutter_modules.dart';
+import 'package:flutter_modules/likk_picker/src/likk_entity.dart';
 import 'package:path/path.dart' as path;
-// import 'package:pedantic/pedantic.dart';
+
 import 'package:photo_manager/photo_manager.dart';
 
 import '../entities/camera_type.dart';

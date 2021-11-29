@@ -2,9 +2,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/physics.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_modules/flutter_modules.dart';
 import 'package:flutter_modules/likk_picker/src/gallery/src/controllers/gallery_repository.dart';
+import 'package:photo_manager/photo_manager.dart';
 
 ///
 enum SlidingState {

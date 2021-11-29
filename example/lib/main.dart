@@ -1,5 +1,7 @@
 
+import 'package:example/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modules/flutter_modules.dart';
 
 import 'persistent_tab_bar_view.dart';
 Future<void> main() async {
@@ -8,7 +10,7 @@ Future<void> main() async {
   runApp(App());
 }
 
-class App extends StatefulWidget {
+class App extends StatefulWidget  {
   const App({Key? key}) : super(key: key);
 
   @override
@@ -20,10 +22,16 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home:PersistentTabBarView(),
+    return ScreenUtilInit(
+        designSize: Size(1080, 1920),
+      builder: () {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          home:HomePage(),
+        );
+      }
     );
   }
+
 }
 

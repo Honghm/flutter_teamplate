@@ -5,6 +5,7 @@ import 'package:flutter_modules/flutter_modules.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modules/likk_picker/src/animations/animations.dart';
+import 'package:flutter_modules/likk_picker/src/likk_entity.dart';
 import 'package:flutter_modules/likk_picker/src/slidable_panel/slidable_panel.dart';
 import 'package:photo_manager/photo_manager.dart';
 

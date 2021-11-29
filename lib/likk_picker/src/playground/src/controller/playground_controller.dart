@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_modules/flutter_modules.dart';
+import 'package:flutter_modules/likk_picker/src/likk_entity.dart';
 import 'package:flutter_modules/likk_picker/src/sticker_booth/sticker_booth.dart';
 import 'package:photo_manager/photo_manager.dart';
 

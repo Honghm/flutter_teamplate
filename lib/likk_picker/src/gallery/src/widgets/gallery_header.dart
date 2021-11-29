@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modules/flutter_modules.dart';
+import 'package:photo_manager/photo_manager.dart';
 
 // ignore: always_use_package_imports
 import '../controllers/gallery_repository.dart';

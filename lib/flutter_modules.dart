@@ -8,38 +8,38 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:math';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_modules/constants/color_configs.dart';
+import 'package:flutter_modules/constants/text_configs.dart';
+import 'package:flutter_modules/modules/wallet/login_bloc/login_bloc.dart';
 import 'package:flutter_modules/pin_code/cursor_painter.dart';
 import 'package:flutter_modules/pin_code/models/platform.dart';
 import 'package:flutter_modules/button/bell/circle.dart';
 import 'package:flutter/widgets.dart';
-// import 'package:wechat_assets_picker/wechat_assets_picker.dart';
-// import 'package:wechat_camera_picker/wechat_camera_picker.dart';
 import 'package:flutter/cupertino.dart' show CupertinoApp;
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
+import 'package:another_flushbar/flushbar.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
-export 'package:photo_manager/photo_manager.dart';
-
-
-
+export 'package:flutter_screenutil/flutter_screenutil.dart';
+//export 'package:photo_manager/photo_manager.dart';
 export 'likk_picker/src/camera/camera_view.dart';
 export 'likk_picker/src/gallery/gallery_view.dart';
-export 'likk_picker/src/likk_entity.dart';
-export 'likk_picker/src/playground/src/controller/playground_controller.dart';
-export 'likk_picker/src/playground/src/entities/playground_background.dart';
-export 'likk_picker/src/playground/src/playground.dart';
-export 'likk_picker/src/playground/src/widgets/playground_add_text_button.dart';
-export 'likk_picker/src/playground/src/widgets/playground_background.dart';
-export 'likk_picker/src/playground/src/widgets/playground_button_collection.dart';
-export 'likk_picker/src/playground/src/widgets/playground_capture_button.dart';
-export 'likk_picker/src/playground/src/widgets/playground_close_button.dart';
-export 'likk_picker/src/playground/src/widgets/playground_controller_provider.dart';
-export 'likk_picker/src/playground/src/widgets/playground_overlay.dart';
-export 'likk_picker/src/playground/src/widgets/playground_sticker_picker.dart';
-export 'likk_picker/src/playground/src/widgets/playground_textfield.dart';
 
-
-
+//import 'likk_picker/src/likk_entity.dart';
+// export 'likk_picker/src/playground/src/controller/playground_controller.dart';
+// export 'likk_picker/src/playground/src/entities/playground_background.dart';
+// export 'likk_picker/src/playground/src/playground.dart';
+// export 'likk_picker/src/playground/src/widgets/playground_add_text_button.dart';
+// export 'likk_picker/src/playground/src/widgets/playground_background.dart';
+// export 'likk_picker/src/playground/src/widgets/playground_button_collection.dart';
+// export 'likk_picker/src/playground/src/widgets/playground_capture_button.dart';
+// export 'likk_picker/src/playground/src/widgets/playground_close_button.dart';
+// export 'likk_picker/src/playground/src/widgets/playground_controller_provider.dart';
+// export 'likk_picker/src/playground/src/widgets/playground_overlay.dart';
+// export 'likk_picker/src/playground/src/widgets/playground_sticker_picker.dart';
+// export 'likk_picker/src/playground/src/widgets/playground_textfield.dart';
+export 'modules/wallet/login_bloc/login_bloc.dart';
 
 part 'persistent-tab-view/persistent-tab-view.widget.dart';
 part 'button/build_button.dart';
@@ -51,10 +51,11 @@ part 'pin_code/models/pin_theme.dart';
 part 'pin_code/pin_code_fields.dart';
 part 'slide/range_slider.dart';
 part 'button/bell/blinking_point.dart';
+
 part 'camera/constants/custom_pick_method.dart';
 part 'camera/constants/extensions.dart';
-// part 'camera/constants/picker_method.dart';
 
+part 'modules/wallet/login_screen.dart';
 
 //Models
 part 'persistent-tab-view/models/persistent-nav-bar-scaffold.widget.dart';
@@ -108,7 +109,5 @@ part 'keyboard/keyboard.dart';
 part 'animation/shake_animation.dart';
 
 // part 'module_login/verify_code/verify_code_screen.dart';
-
-
 
 double? kKeyboardHeight;
