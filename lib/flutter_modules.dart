@@ -11,7 +11,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modules/constants/color_configs.dart';
 import 'package:flutter_modules/constants/text_configs.dart';
-import 'package:flutter_modules/modules/wallet/login_bloc/wallet_login_bloc.dart';
+
+
 import 'package:flutter_modules/pin_code/cursor_painter.dart';
 import 'package:flutter_modules/pin_code/models/platform.dart';
 import 'package:flutter_modules/button/bell/circle.dart';
@@ -25,21 +26,10 @@ export 'package:flutter_screenutil/flutter_screenutil.dart';
 export 'package:photo_manager/photo_manager.dart';
 export 'likk_picker/src/camera/camera_view.dart';
 export 'likk_picker/src/gallery/gallery_view.dart';
-
-//import 'likk_picker/src/likk_entity.dart';
-// export 'likk_picker/src/playground/src/controller/playground_controller.dart';
-// export 'likk_picker/src/playground/src/entities/playground_background.dart';
-// export 'likk_picker/src/playground/src/playground.dart';
-// export 'likk_picker/src/playground/src/widgets/playground_add_text_button.dart';
-// export 'likk_picker/src/playground/src/widgets/playground_background.dart';
-// export 'likk_picker/src/playground/src/widgets/playground_button_collection.dart';
-// export 'likk_picker/src/playground/src/widgets/playground_capture_button.dart';
-// export 'likk_picker/src/playground/src/widgets/playground_close_button.dart';
-// export 'likk_picker/src/playground/src/widgets/playground_controller_provider.dart';
-// export 'likk_picker/src/playground/src/widgets/playground_overlay.dart';
-// export 'likk_picker/src/playground/src/widgets/playground_sticker_picker.dart';
-// export 'likk_picker/src/playground/src/widgets/playground_textfield.dart';
 export 'modules/wallet/login_bloc/wallet_login_bloc.dart';
+
+import 'package:flutter_modules/modules/wallet/login_bloc/wallet_login_bloc.dart';
+import 'package:flutter_modules/modules/wallet/models/customize_login_screen.dart';
 
 part 'persistent-tab-view/persistent-tab-view.widget.dart';
 part 'button/build_button.dart';
@@ -56,6 +46,8 @@ part 'camera/constants/custom_pick_method.dart';
 part 'camera/constants/extensions.dart';
 
 part 'modules/wallet/login_screen.dart';
+part 'modules/wallet/forgot_password_screen.dart';
+
 
 //Models
 part 'persistent-tab-view/models/persistent-nav-bar-scaffold.widget.dart';
@@ -108,6 +100,8 @@ part 'intl_phone_number_input/intl_phone_number.dart';
 part 'keyboard/keyboard.dart';
 part 'animation/shake_animation.dart';
 
+
+part 'constants/text_input_pormatter.dart';
 // part 'module_login/verify_code/verify_code_screen.dart';
 
 double? kKeyboardHeight;

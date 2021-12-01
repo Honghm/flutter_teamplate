@@ -35,10 +35,12 @@ WalletLoginBloc() : super(WalletLoginState.initial()) {
       emit(state.copyWith(rememberMe: event.rememberMe));
     });
     on<WalletLoginClicked>((event, emit) async {
+      
       if (!passReg.hasMatch(state.password) || !emailReg.hasMatch(state.email))
         return;
 
       emit(state.copyWith(buttonStatus: ButtonStatus.loading));
+     
       await event.onWalletLoginClicked(
         state.email,
         state.password,

@@ -1,58 +1,27 @@
-
 part of flutter_modules;
 
-
-
-typedef WalletLoginCallback = Future<void> Function(String email, String password,
-    void Function() onSuccess, void Function() onFailed);
+typedef WalletLoginCallback = Future<void> Function(String email,
+    String password, void Function() onSuccess, void Function() onFailed);
 
 class WalletLoginScreen extends StatefulWidget {
+  final WalletLoginCallback onWalletLoginClicked;
+  final CustomizeLoginScreen? customizeLoginScreen;
+  final bool showRememberMe;
+  final bool showForgotPassword;
+  final bool showSignUp;
+  final CustomizeWidgetRemember? customizeWidgetRemember;
+  final CustomizeWidgetForgotPassword? customizeWidgetForgotPassword;
+
   const WalletLoginScreen({
     Key? key,
-    this.rememberMeChanged,
-    this.onForgotPasswordClicked,
+    this.customizeLoginScreen,
     required this.onWalletLoginClicked,
-    this.primaryColor,
-    this.backgroundColor,
-    this.subtitle,
-    this.logo,
-    this.subtitleStyle,
-    this.textFieldStyle,
-    this.buttonIdleText,
-    this.buttonErrorText,
-    this.buttonSuccessText,
-    this.buttonErrorColor,
-    this.buttonSuccessColor,
-    this.buttonTextStyle,
-    this.forgotPasswordText,
-    this.rememberMeText,
-    this.textFieldDecoration,
-  })  : assert((rememberMeChanged == null && rememberMeText == null) ||
-            (rememberMeChanged != null && rememberMeText != null)),
-        assert((forgotPasswordText == null &&
-                onForgotPasswordClicked == null) ||
-            (forgotPasswordText != null && onForgotPasswordClicked != null)),
-        assert(subtitle == null && subtitleStyle == null || subtitle != null),
-        super(key: key);
-
-  final ValueChanged<bool>? rememberMeChanged;
-  final Future<bool?> Function()? onForgotPasswordClicked;
-  final WalletLoginCallback onWalletLoginClicked;
-  final Color? primaryColor;
-  final Color? backgroundColor;
-  final String? subtitle;
-  final TextStyle? subtitleStyle;
-  final Widget? logo;
-  final TextStyle? textFieldStyle;
-  final String? buttonIdleText;
-  final String? buttonErrorText;
-  final String? buttonSuccessText;
-  final Color? buttonErrorColor;
-  final Color? buttonSuccessColor;
-  final TextStyle? buttonTextStyle;
-  final String? forgotPasswordText;
-  final String? rememberMeText;
-  final InputDecoration? textFieldDecoration;
+    this.showRememberMe = true,
+    this.showSignUp = true,
+    this.showForgotPassword = true,
+    this.customizeWidgetRemember,
+    this.customizeWidgetForgotPassword,
+  }) : super(key: key);
 
   @override
   _WalletLoginScreenState createState() => _WalletLoginScreenState();
@@ -63,8 +32,7 @@ class _WalletLoginScreenState extends State<WalletLoginScreen> {
   final TextEditingController _password = TextEditingController();
 
   WalletLoginBloc? _bloc;
-  TextStyle get buttonTextStyle =>
-      widget.buttonTextStyle ?? TextConfigs.kTextConfig;
+
   @override
   void didChangeDependencies() {
     if (_bloc == null) {
@@ -92,7 +60,7 @@ class _WalletLoginScreenState extends State<WalletLoginScreen> {
         }
       },
       child: Scaffold(
-        backgroundColor: widget.backgroundColor ?? ColorConfigs.kColorLight,
+        backgroundColor: widget.customizeLoginScreen!.backgroundColor,
         body: SafeArea(
           child: Padding(
             padding: EdgeInsets.only(left: 50.w, right: 50.w, top: 100.h),
@@ -105,15 +73,15 @@ class _WalletLoginScreenState extends State<WalletLoginScreen> {
                     SizedBox(
                       height: 98.h,
                     ),
-                    if (widget.logo != null) widget.logo!,
+                    if (widget.customizeLoginScreen!.logo != null)
+                      widget.customizeLoginScreen!.logo!,
                     SizedBox(
                       height: 32.h,
                     ),
-                    if (widget.subtitle != null)
+                    if (widget.customizeLoginScreen!.subtitle != null)
                       Text(
-                        widget.subtitle!,
-                        style:
-                            widget.subtitleStyle ?? TextConfigs.kText40Normal_Dark,
+                        widget.customizeLoginScreen!.subtitle!,
+                        style: widget.customizeLoginScreen!.subtitleStyle,
                       ),
                     SizedBox(
                       height: 30.h,
@@ -125,25 +93,25 @@ class _WalletLoginScreenState extends State<WalletLoginScreen> {
                 ),
                 TextFormField(
                   controller: _email,
-                  style: widget.textFieldStyle ?? TextConfigs.kText40Normal_Dark,
+                  style: widget.customizeLoginScreen!.textFieldStyle,
                   onChanged: (val) => _bloc!.add(WalletLoginEmailChanged(val)),
-                  cursorColor: widget.primaryColor ?? ColorConfigs.kColorPrimary,
+                  cursorColor: widget.customizeLoginScreen!.primaryColor,
                   keyboardType: TextInputType.emailAddress,
-                  decoration: widget.textFieldDecoration ??
+                  decoration: widget
+                          .customizeLoginScreen!.textFieldDecoration ??
                       InputDecoration(
                         contentPadding: EdgeInsets.symmetric(
                             vertical: 40.h, horizontal: 24.w),
                         isDense: true,
                         focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                                color: widget.primaryColor ??
-                                    ColorConfigs.kColorPrimary)),
+                                color:
+                                    widget.customizeLoginScreen!.primaryColor)),
                         enabledBorder: OutlineInputBorder(
                             borderSide:
                                 BorderSide(color: ColorConfigs.kColorHint)),
-                        hintStyle: widget.textFieldStyle
-                                ?.copyWith(color: ColorConfigs.kColorHint) ??
-                            TextConfigs.kText40Normal_Hint,
+                        hintStyle: widget.customizeLoginScreen!.textFieldStyle!
+                            .copyWith(color: ColorConfigs.kColorHint),
                         hintText: "Email",
                       ),
                 ),
@@ -165,12 +133,14 @@ class _WalletLoginScreenState extends State<WalletLoginScreen> {
                   },
                 ),
                 TextFormField(
-                  onChanged: (val) => _bloc!.add(WalletLoginPasswordChanged(val)),
+                  onChanged: (val) =>
+                      _bloc!.add(WalletLoginPasswordChanged(val)),
                   controller: _password,
-                  style: widget.textFieldStyle ?? TextConfigs.kText40Normal_Dark,
-                  cursorColor: widget.primaryColor ?? ColorConfigs.kColorPrimary,
+                  style: widget.customizeLoginScreen!.textFieldStyle,
+                  cursorColor: widget.customizeLoginScreen!.primaryColor,
                   obscureText: true,
-                  decoration: widget.textFieldDecoration ??
+                  decoration: widget
+                          .customizeLoginScreen!.textFieldDecoration ??
                       InputDecoration(
                         contentPadding: EdgeInsets.symmetric(
                             vertical: 40.h, horizontal: 24.w),
@@ -180,11 +150,10 @@ class _WalletLoginScreenState extends State<WalletLoginScreen> {
                                 BorderSide(color: ColorConfigs.kColorHint)),
                         focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                                color: widget.primaryColor ??
-                                    ColorConfigs.kColorPrimary)),
-                        hintStyle: widget.textFieldStyle
-                                ?.copyWith(color: ColorConfigs.kColorHint) ??
-                            TextConfigs.kText40Normal_Hint,
+                                color:
+                                    widget.customizeLoginScreen!.primaryColor)),
+                        hintStyle: widget.customizeLoginScreen!.textFieldStyle
+                            ?.copyWith(color: ColorConfigs.kColorHint),
                         hintText: "Password",
                       ),
                 ),
@@ -205,11 +174,13 @@ class _WalletLoginScreenState extends State<WalletLoginScreen> {
                 SizedBox(
                   height: 70.h,
                 ),
-                if (widget.rememberMeText != null)
+                if (widget.showRememberMe)
                   InkWell(
                     onTap: () {
                       _bloc!.add(WalletLoginRememberMeChanged(
-                          !_bloc!.state.rememberMe, widget.rememberMeChanged!));
+                          !_bloc!.state.rememberMe,
+                          widget.customizeWidgetRemember!.rememberMeChanged ??
+                              (value) {}));
                     },
                     child: Container(
                       height: 84.h,
@@ -217,20 +188,34 @@ class _WalletLoginScreenState extends State<WalletLoginScreen> {
                         children: [
                           BlocSelector<WalletLoginBloc, WalletLoginState, bool>(
                             selector: (state) => state.rememberMe,
-                            builder: (context, rememberMe) {
-                              return Container(
-                                height: 50.h,
-                                width: 50.h,
-                                decoration: BoxDecoration(
-                                  color: rememberMe
-                                      ? widget.primaryColor ??
-                                          ColorConfigs.kColorPrimary
-                                      : Colors.transparent,
-                                  border: Border.all(
-                                      color: widget.primaryColor ??
-                                          ColorConfigs.kColorPrimary),
-                                ),
-                              );
+                            builder: (context, result) {
+                              if (result) {
+                                return widget
+                                        .customizeWidgetRemember!.iconEnable ??
+                                    Container(
+                                      height: 50.h,
+                                      width: 50.h,
+                                      decoration: BoxDecoration(
+                                        color: ColorConfigs.kColorPrimary,
+                                        border: Border.all(
+                                            color: widget.customizeLoginScreen!
+                                                .primaryColor),
+                                      ),
+                                    );
+                              } else {
+                                return widget
+                                        .customizeWidgetRemember!.iconDisable ??
+                                    Container(
+                                      height: 50.h,
+                                      width: 50.h,
+                                      decoration: BoxDecoration(
+                                        color: Colors.transparent,
+                                        border: Border.all(
+                                            color: widget.customizeLoginScreen!
+                                                .primaryColor),
+                                      ),
+                                    );
+                              }
                             },
                           ),
                           SizedBox(
@@ -241,8 +226,11 @@ class _WalletLoginScreenState extends State<WalletLoginScreen> {
                                 height: 84.h,
                                 alignment: Alignment.centerLeft,
                                 child: Text(
-                                  widget.rememberMeText ?? "Remember me",
-                                  style: TextConfigs.kText40Normal_Dark,
+                                  widget.customizeWidgetRemember!.title ??
+                                      "Remember me",
+                                  style: widget.customizeWidgetRemember!
+                                          .styleTitle ??
+                                      TextConfigs.kText40Normal_Dark,
                                 )),
                           )
                         ],
@@ -254,59 +242,51 @@ class _WalletLoginScreenState extends State<WalletLoginScreen> {
                 ),
                 Container(
                   alignment: Alignment.center,
-                  child: BlocSelector<WalletLoginBloc, WalletLoginState, ButtonStatus>(
+                  child: BlocSelector<WalletLoginBloc, WalletLoginState,
+                      ButtonStatus>(
                     selector: (state) => state.buttonStatus,
                     builder: (context, buttonStatus) {
                       return ProgressButtonAnimation(
-                        height: 120.h,
-                        maxWidth: _size.width,
-                        state: buttonStatus,
-                        onPressed: () => _bloc!.add(
-                          WalletLoginClicked(widget.onWalletLoginClicked),
-                        ),
-                        stateWidgets: {
-                          ButtonStatus.idle: Text(
-                            widget.buttonIdleText ?? "LOG IN",
-                            style: buttonTextStyle,
-                          ),
-                          ButtonStatus.fail: Text(
-                            widget.buttonErrorText ?? "Có lỗi xảy ra",
-                            style: buttonTextStyle,
-                          ),
-                          ButtonStatus.success: Text(
-                            widget.buttonSuccessText ?? "LOG IN",
-                            style: buttonTextStyle,
-                          ),
-                        },
-                        stateColors: {
-                          ButtonStatus.idle:
-                              widget.primaryColor ?? ColorConfigs.kColorPrimary,
-                          ButtonStatus.loading:
-                              widget.primaryColor ?? ColorConfigs.kColorPrimary,
-                          ButtonStatus.fail:
-                              widget.buttonErrorColor ?? ColorConfigs.kColorError,
-                          ButtonStatus.success:
-                              widget.buttonSuccessColor ?? ColorConfigs.kColorPrimary,
-                        },
-                      );
+                          height: 120.h,
+                          maxWidth: _size.width,
+                          state: buttonStatus,
+                          onPressed: () => _bloc!.add(
+                                WalletLoginClicked(widget.onWalletLoginClicked),
+                              ),
+                          stateWidgets:
+                              widget.customizeLoginScreen!.stateWidgets,
+                          stateColors:
+                              widget.customizeLoginScreen!.stateColors);
                     },
                   ),
                 ),
                 SizedBox(
                   height: 75.h,
                 ),
-                if (widget.forgotPasswordText != null)
+                if (widget.showForgotPassword)
                   Container(
                     alignment: Alignment.center,
                     child: InkWell(
                       onTap: () {
-                        _bloc!.add(WalletLoginForgotPasswordClicked(
-                            widget.onForgotPasswordClicked!));
+
+                        if (widget.customizeWidgetForgotPassword!
+                                .onForgotPasswordClicked !=
+                            null) {
+                          _bloc!.add(WalletLoginForgotPasswordClicked(widget
+                              .customizeWidgetForgotPassword!
+                              .onForgotPasswordClicked!));
+                        } else {
+
+                        }
                       },
                       child: Text(
-                        widget.forgotPasswordText!,
-                        style: TextConfigs.kText40Normal_Primary
-                            .copyWith(color: widget.primaryColor),
+                        widget.customizeWidgetForgotPassword!.title ??
+                            "Forgot password?",
+                        style: widget
+                                .customizeWidgetForgotPassword!.styleTitle ??
+                            TextConfigs.kText40Normal_Primary.copyWith(
+                                color:
+                                    widget.customizeLoginScreen!.primaryColor),
                       ),
                     ),
                   )
