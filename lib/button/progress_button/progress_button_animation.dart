@@ -22,22 +22,22 @@ class ProgressButtonAnimation extends StatefulWidget {
 
   ProgressButtonAnimation(
       {Key? key,
-        this.stateWidget,
-        this.stateColor,
-        this.stateWidgets,
-        this.stateColors,
-        this.state = ButtonStatus.idle,
-        this.onPressed,
-        this.onAnimationEnd,
-        this.minWidth = 58,
-        this.maxWidth = 400,
-        this.radius = 100,
-        this.height = 53,
-        this.progressIndicatorSize = 35,
-        this.progressIndicator,
-        this.progressIndicatorAlignment = MainAxisAlignment.center,
-        this.padding = EdgeInsets.zero,
-        this.minWidthStates = const <ButtonStatus>[ButtonStatus.loading]})
+      this.stateWidget,
+      this.stateColor,
+      this.stateWidgets,
+      this.stateColors,
+      this.state = ButtonStatus.idle,
+      this.onPressed,
+      this.onAnimationEnd,
+      this.minWidth = 58,
+      this.maxWidth = 400,
+      this.radius = 100,
+      this.height = 53,
+      this.progressIndicatorSize = 35,
+      this.progressIndicator,
+      this.progressIndicatorAlignment = MainAxisAlignment.center,
+      this.padding = EdgeInsets.zero,
+      this.minWidthStates = const <ButtonStatus>[ButtonStatus.loading]})
       : super(key: key);
 
   @override
@@ -71,12 +71,11 @@ class ProgressButtonAnimation extends StatefulWidget {
     Map<ButtonStatus, Color>? _stateColors = {};
     Widget? _stateWidget;
     Color? _stateColor;
-    if(buttonWithIcon!=null){
-      _stateWidget = buildChildWithIcon(
-          buttonWithIcon, iconPadding, textStyle);
+    if (buttonWithIcon != null) {
+      _stateWidget = buildChildWithIcon(buttonWithIcon, iconPadding, textStyle);
       _stateColor = buttonWithIcon.color;
     }
-    if(buttonWithIcons!=null){
+    if (buttonWithIcons != null) {
       _stateWidgets = {
         ButtonStatus.idle: buildChildWithIcon(
             buttonWithIcons[ButtonStatus.idle]!, iconPadding, textStyle),
@@ -94,9 +93,6 @@ class ProgressButtonAnimation extends StatefulWidget {
         ButtonStatus.success: buttonWithIcons[ButtonStatus.success]!.color,
       };
     }
-
-
-
 
     return ProgressButtonAnimation(
       stateWidgets: _stateWidgets,
@@ -178,7 +174,6 @@ class _ProgressButtonAnimationState extends State<ProgressButtonAnimation>
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     width = widget.maxWidth;
@@ -193,7 +188,7 @@ class _ProgressButtonAnimationState extends State<ProgressButtonAnimation>
         _stateWidgets = widget.stateWidgets!;
       });
     }
-    if(widget.stateWidget!=null){
+    if (widget.stateWidget != null) {
       _stateWidgets = {
         ButtonStatus.idle: widget.stateWidget!,
         ButtonStatus.loading: Text(
@@ -207,7 +202,7 @@ class _ProgressButtonAnimationState extends State<ProgressButtonAnimation>
         _stateColors = widget.stateColors!;
       });
     }
-    if(widget.stateColor!=null){
+    if (widget.stateColor != null) {
       _stateColors = {
         ButtonStatus.idle: widget.stateColor!,
         ButtonStatus.loading: widget.stateColor!,
@@ -230,9 +225,8 @@ class _ProgressButtonAnimationState extends State<ProgressButtonAnimation>
 
   @override
   void dispose() {
-    // TODO: implement dispose
-    super.dispose();
     colorAnimationController!.dispose();
+    super.dispose();
   }
 
   void onPressedCustomButton() {

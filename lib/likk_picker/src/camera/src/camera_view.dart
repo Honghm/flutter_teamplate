@@ -6,7 +6,7 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_modules/flutter_modules.dart';
+
 import 'package:flutter_modules/likk_picker/src/animations/animations.dart';
 import 'package:flutter_modules/likk_picker/src/likk_entity.dart';
 import 'package:flutter_modules/likk_picker/src/playground/playground.dart';

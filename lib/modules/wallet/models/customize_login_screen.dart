@@ -50,7 +50,7 @@ class CustomizeLoginScreen {
       ButtonStatus.success: Text(
         "LOG IN",
         style: const TextStyle(
-          fontSize: 18,
+          fontSize: 18, 
           fontWeight: FontWeight.normal,
           color: ColorConfigs.kColorLight,
         ),

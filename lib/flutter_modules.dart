@@ -24,6 +24,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 export 'package:flutter_screenutil/flutter_screenutil.dart';
 export 'package:photo_manager/photo_manager.dart';
+export 'package:dio/dio.dart';
+export 'package:google_fonts/google_fonts.dart';
+export 'package:flutter_svg/flutter_svg.dart';
+export 'package:provider/provider.dart';
+export 'package:path_provider/path_provider.dart';
 export 'likk_picker/src/camera/camera_view.dart';
 export 'likk_picker/src/gallery/gallery_view.dart';
 export 'modules/wallet/login_bloc/wallet_login_bloc.dart';
