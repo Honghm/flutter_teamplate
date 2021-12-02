@@ -11,7 +11,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modules/constants/color_configs.dart';
 import 'package:flutter_modules/constants/text_configs.dart';
-
+import 'package:flutter_modules/modules/wallet/login_bloc/wallet_login_bloc.dart';
+import 'package:flutter_modules/modules/wallet/models/customize_login_screen.dart';
+import 'package:intl/intl.dart';
 
 import 'package:flutter_modules/pin_code/cursor_painter.dart';
 import 'package:flutter_modules/pin_code/models/platform.dart';
@@ -33,8 +35,6 @@ export 'likk_picker/src/camera/camera_view.dart';
 export 'likk_picker/src/gallery/gallery_view.dart';
 export 'modules/wallet/login_bloc/wallet_login_bloc.dart';
 
-import 'package:flutter_modules/modules/wallet/login_bloc/wallet_login_bloc.dart';
-import 'package:flutter_modules/modules/wallet/models/customize_login_screen.dart';
 
 part 'persistent-tab-view/persistent-tab-view.widget.dart';
 part 'button/build_button.dart';

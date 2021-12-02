@@ -1,6 +1,6 @@
 name: flutter_modules
 description: Template of some commonly used widgets.
-version: 0.0.14
+version: 0.0.15
 homepage: https://github.com/Covisoft/flutter_modules
 
 environment:
@@ -31,6 +31,8 @@ dependencies:
     git:
       url: https://github.com/Honghm/flutter_packages
       path: intl_phone_number_input
+
+  intl: ^0.17.0
 
   libphonenumber_plugin: ^0.2.3
 
