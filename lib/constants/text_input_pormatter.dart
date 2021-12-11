@@ -36,7 +36,7 @@ class ThousandsFormatter extends NumberInputFormatter {
   static final NumberFormat _formatter = NumberFormat.decimalPattern();
 
   // ignore: deprecated_member_use
-  final WhitelistingTextInputFormatter _decimalFormatter;
+  final  _decimalFormatter;
   final String _decimalSeparator;
   final RegExp _decimalRegex;
 
@@ -49,7 +49,7 @@ class ThousandsFormatter extends NumberInputFormatter {
             ? '[0-9]+([${(formatter ?? _formatter).symbols.DECIMAL_SEP}])?'
             : r'\d+'),
         // ignore: deprecated_member_use
-        _decimalFormatter = WhitelistingTextInputFormatter(RegExp(allowFraction
+        _decimalFormatter = (RegExp(allowFraction
             ? '[0-9]+([${(formatter ?? _formatter).symbols.DECIMAL_SEP}])?'
             : r'\d+'));
 
