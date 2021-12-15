@@ -13,74 +13,74 @@ class BottomNavStyle3 extends StatelessWidget {
     return this.navBarEssentials!.navBarHeight == 0
         ? SizedBox.shrink()
         : AnimatedContainer(
-            width: 100.0,
-            height: height! / 1.0,
+          width: 150.0,
+          height: height,
+          duration:
+              this.navBarEssentials!.itemAnimationProperties?.duration ??
+                  Duration(milliseconds: 1000),
+          curve: this.navBarEssentials!.itemAnimationProperties?.curve ??
+              Curves.ease,
+          alignment: Alignment.center,
+          child: AnimatedContainer(
             duration:
                 this.navBarEssentials!.itemAnimationProperties?.duration ??
                     Duration(milliseconds: 1000),
             curve: this.navBarEssentials!.itemAnimationProperties?.curve ??
                 Curves.ease,
             alignment: Alignment.center,
-            child: AnimatedContainer(
-              duration:
-                  this.navBarEssentials!.itemAnimationProperties?.duration ??
-                      Duration(milliseconds: 1000),
-              curve: this.navBarEssentials!.itemAnimationProperties?.curve ??
-                  Curves.ease,
-              alignment: Alignment.center,
-              height: height / 1.0,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Expanded(
-                    child: IconTheme(
-                      data: IconThemeData(
-                          size: item.iconSize,
-                          color: isSelected
-                              ? (item.activeColorSecondary == null
-                                  ? item.activeColorPrimary
-                                  : item.activeColorSecondary)
-                              : item.inactiveColorPrimary == null
-                                  ? item.activeColorPrimary
-                                  : item.inactiveColorPrimary),
-                      child: isSelected
-                          ? item.icon
-                          : item.inactiveIcon ?? item.icon,
-                    ),
+            height: height,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                   width: height! * 0.5,
+                        height: height * 0.4,
+                  child: IconTheme(
+                    data: IconThemeData(
+                        size: item.iconSize,
+                        color: isSelected
+                            ? (item.activeColorSecondary == null
+                                ? item.activeColorPrimary
+                                : item.activeColorSecondary)
+                            : item.inactiveColorPrimary == null
+                                ? item.activeColorPrimary
+                                : item.inactiveColorPrimary),
+                    child: isSelected
+                        ? item.icon
+                        : item.inactiveIcon ?? item.icon,
                   ),
-                  item.title == null
-                      ? SizedBox.shrink()
-                      : Padding(
-                          padding: const EdgeInsets.only(top: 15.0),
-                          child: Material(
-                            type: MaterialType.transparency,
-                            child: DefaultTextStyle.merge(
-                              style: TextStyle(
-                                  color: item.textStyle != null
-                                      ? item.textStyle!.apply(
-                                              color: isSelected
-                                                  ? (item.activeColorSecondary ==
-                                                          null
-                                                      ? item.activeColorPrimary
-                                                      : item.activeColorSecondary)
-                                                  : item.inactiveColorPrimary)
-                                          as Color?
-                                      : isSelected
-                                          ? (item.activeColorSecondary == null
-                                              ? item.activeColorPrimary
-                                              : item.activeColorSecondary)
-                                          : item.inactiveColorPrimary,
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 12.0),
-                              child: FittedBox(child: Text(item.title!)),
-                            ),
+                ),
+                item.title == null
+                    ? SizedBox.shrink()
+                    : Padding(
+                        padding: const EdgeInsets.only(top: 5.0),
+                        child: Material(
+                          type: MaterialType.transparency,
+                          child: DefaultTextStyle.merge(
+                            style: item.textStyle != null
+                                ? (item.textStyle!.apply(
+                                    color: isSelected
+                                        ? (item.activeColorSecondary == null
+                                            ? item.activeColorPrimary
+                                            : item.activeColorSecondary)
+                                        : item.inactiveColorPrimary))
+                                : TextStyle(
+                                    color: isSelected
+                                        ? (item.activeColorSecondary == null
+                                            ? item.activeColorPrimary
+                                            : item.activeColorSecondary)
+                                        : item.inactiveColorPrimary,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 12.0),
+                            child: FittedBox(child: Text(item.title!)),
                           ),
                         ),
-                ],
-              ),
+                      ),
+              ],
             ),
-          );
+          ),
+        );
   }
 
   @override
@@ -100,10 +100,7 @@ class BottomNavStyle3 extends StatelessWidget {
       height: this.navBarEssentials!.navBarHeight,
       padding: EdgeInsets.only(
           top: this.navBarEssentials!.padding?.top ?? 0.0,
-          left: this.navBarEssentials!.padding?.left ??
-              MediaQuery.of(context).size.width * 0.05,
-          right: this.navBarEssentials!.padding?.right ??
-              MediaQuery.of(context).size.width * 0.05,
+          
           bottom: this.navBarEssentials!.padding?.bottom ??
               this.navBarEssentials!.navBarHeight! * 0.1),
       child: Column(

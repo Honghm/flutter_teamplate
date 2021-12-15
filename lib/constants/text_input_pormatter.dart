@@ -32,11 +32,11 @@ class CustomTextInputFormatter extends TextInputFormatter {
   }
 }
 
+
 class ThousandsFormatter extends NumberInputFormatter {
   static final NumberFormat _formatter = NumberFormat.decimalPattern();
 
-  // ignore: deprecated_member_use
-  final  _decimalFormatter;
+  final FilteringTextInputFormatter _decimalFormatter;
   final String _decimalSeparator;
   final RegExp _decimalRegex;
 
@@ -48,14 +48,14 @@ class ThousandsFormatter extends NumberInputFormatter {
         _decimalRegex = RegExp(allowFraction
             ? '[0-9]+([${(formatter ?? _formatter).symbols.DECIMAL_SEP}])?'
             : r'\d+'),
-        // ignore: deprecated_member_use
-        _decimalFormatter = (RegExp(allowFraction
-            ? '[0-9]+([${(formatter ?? _formatter).symbols.DECIMAL_SEP}])?'
-            : r'\d+'));
+        _decimalFormatter = FilteringTextInputFormatter.allow(RegExp(
+            allowFraction
+                ? '[0-9]+([${(formatter ?? _formatter).symbols.DECIMAL_SEP}])?'
+                : r'\d+'));
 
   @override
   String _formatPattern(String? digits) {
-    if (digits == null || digits.isEmpty) return digits!;
+    if (digits == null || digits.isEmpty) return '';
     num number;
     if (allowFraction) {
       String decimalDigits = digits;

@@ -1,7 +1,7 @@
 name: flutter_modules
 description: Template of some commonly used widgets.
-version: 0.0.16
-homepage: https://github.com/Covisoft/flutter_modules
+version: 0.1.1
+homepage: https://github.com/Honghm/flutter_template.git
 
 environment:
   sdk: ">=2.13.0 <3.0.0"
@@ -13,7 +13,7 @@ dependencies:
 
   another_flushbar: ^1.10.24
 
-  camera: 0.9.1
+  camera: ^0.9.4+5
   collection: ^1.15.0
 
   dio: ^4.0.0
