@@ -7,7 +7,7 @@ packages:
       name: another_flushbar
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.10.26"
+    version: "1.10.28"
   async:
     dependency: transitive
     description:
@@ -112,7 +112,7 @@ packages:
       name: extended_image
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.1.3"
+    version: "6.0.1"
   extended_image_library:
     dependency: transitive
     description:
@@ -224,10 +224,10 @@ packages:
     description:
       path: intl_phone_number_input
       ref: HEAD
-      resolved-ref: "535881b696a789b75761f72ccfa4180633085ea6"
+      resolved-ref: "917e813d1c27dc68e2783e635ac32b42424c94b8"
       url: "https://github.com/Honghm/flutter_packages"
     source: git
-    version: "0.0.3"
+    version: "0.0.4"
   js:
     dependency: transitive
     description:
@@ -311,7 +311,7 @@ packages:
       name: path_provider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.7"
+    version: "2.0.8"
   path_provider_android:
     dependency: transitive
     description:
@@ -332,14 +332,14 @@ packages:
       name: path_provider_linux
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.2"
+    version: "2.1.4"
   path_provider_macos:
     dependency: transitive
     description:
       name: path_provider_macos
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.3"
+    version: "2.0.4"
   path_provider_platform_interface:
     dependency: transitive
     description:
@@ -381,7 +381,7 @@ packages:
       name: platform
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.2"
+    version: "3.1.0"
   plugin_platform_interface:
     dependency: transitive
     description:
@@ -515,4 +515,4 @@ packages:
     version: "5.3.1"
 sdks:
   dart: ">=2.14.0 <3.0.0"
-  flutter: ">=2.5.0"
+  flutter: ">=2.8.0"
